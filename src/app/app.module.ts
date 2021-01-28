@@ -10,12 +10,14 @@ import { DetailsPartyComponentComponent } from './parties-component/details-part
 import {FormsModule} from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { DoctorComponent } from './doctor-component/doctor-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PartiesComponent,
-    DetailsPartyComponentComponent
+    DetailsPartyComponentComponent,
+    DoctorComponent
   ],
   imports: [
     BrowserModule,

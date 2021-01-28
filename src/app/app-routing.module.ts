@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PartiesComponent } from './parties-component/parties-component.component';
+import { DoctorComponent } from './doctor-component/doctor-component.component';
+
 const routes: Routes = [
   { path: 'parties', component: PartiesComponent },
+  { path: 'doctor', component: DoctorComponent },
 ];
 
 @NgModule({
