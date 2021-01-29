@@ -1,3 +1,64 @@
-<p>doctor-component works!</p>
+<div class="container">
+  <h1 class="text-center">Prise de rendez-vous en ligne</h1>
+  <br>
+  <br>
 
-<router-outlet></router-outlet>
+  <div class="row">
+    <div class="col-6">
+      <h3>Recherche d'un médecin</h3>
+      <div class="row">
+        <div class="col-12">
+
+          <form class="form-horizontal" role="form">
+            <div class="form-group d-flex justify-content-center align-items-center">
+              <div class="col-4">
+                <label for="specialty">Specialté:</label>
+              </div>
+              <div class="col-8">
+                <select #selectedSpecialty id="specialty" name="specialty"
+                        class=" shadow-none form-control"
+                        (change)='onChangeSpecialty($event.target.value)'>
+                  <option disabled selected>Select spécialité</option>
+                  <option *ngFor="let specialty of specialties; index as i;" [value]="specialty">
+                    {{ specialty }}
+                  </option>
+                </select>
+              </div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <table *ngIf="showList" class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Specialité</th>
+        <th scope="col">Disponibilté</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let doctor of filtredDoctors; let i = index">
+        <th scope="row">1</th>
+        <td>{{doctor.nom}}</td>
+        <td>{{doctor.specialite}}</td>
+        <td>{{doctor.disponibilite}}</td>
+        <td>
+          <button [ngClass]="{'disabled': doctor.disponibilite ===false}" class="btn btn-primary" (click)=displayForm()>
+            Prendre un rendez vous
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <app-doctor-meet></app-doctor-meet>
+  </div>
+  <router-outlet></router-outlet>
+
+</div>
