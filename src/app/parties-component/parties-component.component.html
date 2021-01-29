@@ -1,1 +1,16 @@
-<p style="background-color: blue">parties-component works!</p>
+<div class="container">
+  <h1 class="text-center">Welcome to Jetset magazine !</h1>
+
+  <br>
+
+  <fieldset class="border p-2" *ngFor=" let party of parties">
+    <legend class="w-auto">{{party.title}}</legend>
+    <div class="information">
+      <p><span class="font-weight-bold">Date:</span> {{ party.date}}</p>
+      <p><span class="font-weight-bold">Type:</span> {{ party.type}}</p>
+      <p><span class="font-weight-bold">Nombre de places:</span> {{ party.nb_place}}</p>
+      <p><span class="font-weight-bold">Description:</span> {{ party.description}}</p>
+
+    </div>
+  </fieldset>
+</div>
