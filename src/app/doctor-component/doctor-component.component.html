@@ -6,30 +6,26 @@
   <div class="row">
     <div class="col-6">
       <h3>Recherche d'un médecin</h3>
-      <div class="row">
-        <div class="col-12">
+      <form class="form-horizontal" role="form">
+        <div class="form-group d-flex justify-content-center align-items-center">
+          <div class="col-4">
+            <label for="specialty">Specialté:</label>
+          </div>
+          <div class="col-8">
+            <select #selectedSpecialty id="specialty" name="specialty"
+                    class=" shadow-none form-control"
+                    (change)='onChangeSpecialty($event.target.value)'>
+              <option disabled selected>Select spécialité</option>
+              <option *ngFor="let specialty of specialties; index as i;" [value]="specialty">
+                {{ specialty }}
+              </option>
+            </select>
+          </div>
 
-          <form class="form-horizontal" role="form">
-            <div class="form-group d-flex justify-content-center align-items-center">
-              <div class="col-4">
-                <label for="specialty">Specialté:</label>
-              </div>
-              <div class="col-8">
-                <select #selectedSpecialty id="specialty" name="specialty"
-                        class=" shadow-none form-control"
-                        (change)='onChangeSpecialty($event.target.value)'>
-                  <option disabled selected>Select spécialité</option>
-                  <option *ngFor="let specialty of specialties; index as i;" [value]="specialty">
-                    {{ specialty }}
-                  </option>
-                </select>
-              </div>
-
-            </div>
-          </form>
         </div>
-      </div>
+      </form>
     </div>
+
   </div>
   <div class="row">
     <table *ngIf="showList" class="table table-striped">
@@ -49,15 +45,14 @@
         <td>{{doctor.specialite}}</td>
         <td>{{doctor.disponibilite}}</td>
         <td>
-          <button [ngClass]="{'disabled': doctor.disponibilite ===false}" class="btn btn-primary" (click)=displayForm()>
+          <button [ngClass]="{'disabled': doctor.disponibilite ===false}" class="btn btn-primary" (click)=displayMeetForm()>
             Prendre un rendez vous
           </button>
         </td>
       </tr>
       </tbody>
     </table>
-
-    <app-doctor-meet></app-doctor-meet>
+    <app-doctor-meet *ngIf="isReservation"></app-doctor-meet>
   </div>
   <router-outlet></router-outlet>
 
