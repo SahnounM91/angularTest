@@ -5,4 +5,5 @@ export class Party {
   nb_place:number;
   description:string;
   type:string;
+  nb_place_available: number;
 }

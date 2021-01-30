@@ -1,12 +1,11 @@
+<!-- main nav -->
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <div class="navbar-nav">
+    <a routerLink="/parties" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item nav-link">Parties</a>
+
+  </div>
+</nav>
 <div class="container" >
-  <!-- main nav -->
-  <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <div class="navbar-nav">
-      <a routerLink="/parties" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item nav-link">Parties</a>
-
-    </div>
-  </nav>
-
   <!-- main router outlet -->
   <router-outlet></router-outlet>
 </div>
