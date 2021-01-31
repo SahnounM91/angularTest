@@ -8,6 +8,8 @@ import {HttpClientModule} from "@angular/common/http";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DetailsPartyComponentComponent } from './parties-component/details-party-component/details-party-component.component';
 import {FormsModule} from "@angular/forms";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import {FormsModule} from "@angular/forms";
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    ToastrModule.forRoot({timeOut: 2000}),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

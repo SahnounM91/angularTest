@@ -1,22 +1,28 @@
-<fieldset class="border p-2" *ngFor=" let party of parties">
+<fieldset class="border p-2" *ngFor=" let party of parties;  let i = index;">
   <legend class="w-auto">{{party.title}}</legend>
-  <div class="information">
+  <div class="information" [ngClass]="{
+            'orange' : party.nb_place < 40,
+            'green' : party.nb_place > 40 && party.nb_place <= 100,
+            'yellow' : party.nb_place > 100
+         }">
+
     <p><span class="font-weight-bold">Date:</span> {{ party.date}}</p>
     <p><span class="font-weight-bold">Type:</span> {{ party.type}}</p>
     <p><span class="font-weight-bold">Nombre de places:</span> {{ party.nb_place}}</p>
     <p><span class="font-weight-bold">Nombre de places disponible:</span> {{ party.nb_place_available}}</p>
     <p><span class="font-weight-bold">Description:</span> {{ party.description}}</p>
 
-    <button (click)="display()" class="btn btn-sm btn-primary">Réserver</button>
-    <div class="mt-2 book-form" *ngIf="bookForm">
-      <form>
-        <div class="form-group">
+    <button (click)="party.toggle=!party.toggle"  class="btn btn-sm btn-primary">Réserver</button>
+
+    <div class="mt-2 book-form" *ngIf="party.toggle">
+      <form >
+        <div class="form-group" >
           <label for="placeNbr">Nombre de place à reserver</label>
           <input [(ngModel)]="placeToBook" name="placeToBook" type="number" class="form-control" id="placeNbr">
         </div>
-
-        <button (click)="sendPlaceToBook(party)" type="submit" class="btn btn-primary">Submit</button>
+        <button (click)="sendPlaceToBook(party); " type="submit" class="btn btn-primary">Valider</button>
       </form>
+
     </div>
   </div>
 </fieldset>
