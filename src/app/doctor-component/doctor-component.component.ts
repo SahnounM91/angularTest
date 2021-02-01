@@ -22,17 +22,22 @@ export class DoctorComponent implements OnInit {
   selectedSpecialty: any
   filtredDoctors = this.doctors
   showList = false
-  @ViewChild(DoctorMeetComponent) vc:DoctorMeetComponent
+  doctor: object
+  doctorName = ""
+  isReservation = false
+
   ngOnInit(): void {}
 
   onChangeSpecialty(value: any) {
     this.showList = true
     this.selectedSpecialty = value
     this.filtredDoctors = this.doctors.filter(doctor => doctor.specialite === this.selectedSpecialty)
+    this.doctorName=""
   }
 
-  isReservation = false
-  displayMeetForm() {
+  displayMeetForm(doctor) {
+    this.doctor = doctor
+    this.doctorName = doctor.nom
     this.isReservation = true
   }
 }

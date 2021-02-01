@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
+import * as EventEmitter from 'events';
 
 @Component({
   selector: 'app-doctor-meet',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DoctorMeetComponent implements OnInit {
 
+  @Input() doctor: object
+  @Input() doctorName: string
+  @Output() hidebookform = new EventEmitter<boolean>()
+  patientName = "nom de patient"
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  confirmReservation(doctor: any) {
+    doctor.disponibilite = false
+    this.doctorName=""
+    this.patientName=""
+    this.hidebookform.emit(true)
+  }
 }

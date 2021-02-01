@@ -1,12 +1,11 @@
-<div class="col-12 form-reservation">
-  <form>
-    <div class="form-group row">
-      <label class="col-6 col-form-label" for="patientname">Nom de patient</label>
-      <div class="col-6 pl-0">
-        <input type="text" class="form-control" id="patientname">
-      </div>
+<div  class="col-12 form-reservation">
+  <input style="width: 100%" type="text" id="dtrname" name="dtrname" value={{doctorName}} disabled>
+  <div class="form-group row">
+    <label class="col-6 col-form-label" for="patientname">Nom de patient</label>
+    <div class="col-6 pl-0">
+      <input [(ngModel)]="patientName" type="text" class="form-control" id="patientname">
     </div>
-    <button type="submit" class="btn btn-primary">Confirmer</button>
-  </form>
+  </div>
+  <button (click)="confirmReservation(doctor)" class="btn btn-primary">Confirmer</button>
 </div>
 

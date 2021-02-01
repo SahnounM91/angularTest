@@ -45,14 +45,14 @@
         <td>{{doctor.specialite}}</td>
         <td>{{doctor.disponibilite}}</td>
         <td>
-          <button [ngClass]="{'disabled': doctor.disponibilite ===false}" class="btn btn-primary" (click)=displayMeetForm()>
+          <button [ngClass]="{'disabled': doctor.disponibilite ===false}" class="btn btn-primary" (click)=displayMeetForm(doctor)>
             Prendre un rendez vous
           </button>
         </td>
       </tr>
       </tbody>
     </table>
-    <app-doctor-meet *ngIf="isReservation"></app-doctor-meet>
+    <app-doctor-meet [doctorName]="doctorName" [doctor]="doctor" *ngIf="isReservation"></app-doctor-meet>
   </div>
   <router-outlet></router-outlet>
 
