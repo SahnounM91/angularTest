@@ -5,7 +5,7 @@ import { DoctorComponent } from './doctor-component/doctor-component.component';
 
 const routes: Routes = [
   { path: 'parties', component: PartiesComponent },
-  { path: 'doctor', component: DoctorComponent },
+  { path: 'doctors', component: DoctorComponent },
 ];
 
 @NgModule({
